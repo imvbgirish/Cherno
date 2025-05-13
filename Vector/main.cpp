@@ -16,6 +16,7 @@ int main()
     vertex.push_back({4,5,6});
     function(vertex);
 
+
     for(unsigned int i=0; i<vertex.size(); i++ ){
         std::cout << vertex[i] << std::endl;
     }
