@@ -8,11 +8,12 @@ public:
     int m_x;
     int m_y;
     int m_z;
+
+    Vertex();
+    Vertex(int x,int y,int z);
+    ~Vertex();
 };
 
-std::ostream& operator<<(std::ostream& stream,const Vertex& other){
-    stream << other.m_x << "," << other.m_y << "," << other.m_z;
-    return stream;
-}
+std::ostream& operator<<(std::ostream& stream,const Vertex& other);
 
 #endif // VERTEX_H

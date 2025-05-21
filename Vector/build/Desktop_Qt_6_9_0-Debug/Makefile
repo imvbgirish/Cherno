@@ -52,8 +52,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../../Vertex.cpp \
+		../../main.cpp 
+OBJECTS       = Vertex.o \
+		main.o
 DIST          = /Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/unix.conf \
 		/Qt/6.9.0/gcc_64/mkspecs/common/linux.conf \
@@ -269,6 +271,7 @@ DIST          = /Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -282,7 +285,8 @@ DIST          = /Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/exceptions.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/yacc.prf \
 		/Qt/6.9.0/gcc_64/mkspecs/features/lex.prf \
-		../../../../Vector.pro Vertex.h ../../main.cpp
+		../../../../Vector.pro Vertex.h ../../Vertex.cpp \
+		../../main.cpp
 QMAKE_TARGET  = Vector
 DESTDIR       = 
 TARGET        = Vector
@@ -509,6 +513,7 @@ Makefile: ../../Vector.pro ../../../../Qt/6.9.0/gcc_64/mkspecs/features/spec_pre
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -739,6 +744,7 @@ Makefile: ../../Vector.pro ../../../../Qt/6.9.0/gcc_64/mkspecs/features/spec_pre
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -795,6 +801,9 @@ compiler_lex_clean:
 compiler_clean: 
 
 ####### Compile
+
+Vertex.o: ../../Vertex.cpp ../../Vertex.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Vertex.o ../../Vertex.cpp
 
 main.o: ../../main.cpp ../../Vertex.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
