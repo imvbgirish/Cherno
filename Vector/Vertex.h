@@ -11,9 +11,10 @@ public:
 
     Vertex();
     Vertex(int x,int y,int z);
+    Vertex(const Vertex& v);
     ~Vertex();
 };
 
-std::ostream& operator<<(std::ostream& stream,const Vertex& other);
+// std::ostream& operator<<(std::ostream& stream,const Vertex& other);
 
 #endif // VERTEX_H

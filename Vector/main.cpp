@@ -14,20 +14,22 @@ int main()
     vertex.push_back({1,2,3});
     vertex.push_back({4,5,6});
     vertex.push_back({7,8,9});
-    vertex.push_back({10,11,12});
-    vertex.push_back({13,14,15});
+    // vertex.push_back({10,11,12});
+    // vertex.push_back({13,14,15});
+
+    // std::vector<Vertex> vertex1(vertex);
 
     // function(vertex);
 
-    for(unsigned int i=0; i<vertex.size(); i++ ){
-        std::cout << vertex[i] << std::endl;
-    }
+    // for(unsigned int i=0; i<vertex.size(); i++ ){
+    //     std::cout << vertex[i] << std::endl;
+    // }
 
-    vertex.erase(vertex.begin()+1);
+    // vertex.erase(vertex.begin()+1);
 
-    for(const Vertex& v: vertex){
-        std::cout << v << std::endl;
-    }
+    // for(const Vertex& v: vertex){
+    //     std::cout << v << std::endl;
+    // }
 
     cout << "Hello World!" << endl;
     return 0;
