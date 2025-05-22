@@ -1,0 +1,103 @@
+class Vertex {
+public:
+    int x, y, z;
+    
+    Vertex(int x, int y, int z) : x(x), y(y), z(z) {
+        std::cout << "Parameterized constructor\n";
+    }
+
+    Vertex(const Vertex& other) : x(other.x), y(other.y), z(other.z) {
+        std::cout << "Copy constructor\n";
+    }
+
+    ~Vertex() {
+        std::cout << "Vertex destructor\n";
+    }
+};
+
+int main() {
+    std::vector<Vertex> vertex;
+    vertex.push_back({1,2,3});
+    vertex.push_back({4,5,6});
+    vertex.push_back({7,8,9});
+    std::cout << "Hello World!\n";
+    return 0;
+}
+
+ Step-by-step Breakdown
+1. vertex.push_back({1,2,3});
+{1,2,3} calls the parameterized constructor to create a temporary Vertex.
+
+The vector is empty and has no storage allocated yet.
+
+So it allocates space (likely for 1 element), and then does a copy constructor to copy the temporary into the vector.
+
+The temporary Vertex is destroyed afterward.
+
+Output so far:
+
+Parameterized constructor
+Copy constructor
+Vertex destructor
+
+2. vertex.push_back({4,5,6});
+Another temporary Vertex is created with the parameterized constructor.
+
+Now the vector needs to grow. It likely increases its capacity (e.g., from 1 to 2 or 2 to 4).
+
+It allocates new storage, and copies existing elements into it using the copy constructor.
+
+Then it copies the new element.
+
+Then it destroys the temporary, and destroys the old buffer's elements.
+
+Output:
+
+Parameterized constructor
+Copy constructor   // Copy existing element to new buffer
+Copy constructor   // Copy new element
+Vertex destructor  // Destroy temporary
+Vertex destructor  // Destroy old buffer elements
+
+3. vertex.push_back({7,8,9});
+Temporary with Parameterized constructor.
+
+Vector needs to grow again (e.g., capacity from 2 to 4).
+
+All existing 2 elements are copied into new buffer.
+
+New element copied too.
+
+Temporary destroyed.
+
+Old buffer destroyed.
+
+Output:
+
+Parameterized constructor
+Copy constructor   // 1st old element
+Copy constructor   // 2nd old element
+Copy constructor   // new 3rd element
+Vertex destructor  // destroy temporary
+Vertex destructor  // old buffer
+Vertex destructor  // old buffer
+
+
+✅ Summary
+Temporary Vertex from {x,y,z} calls parameterized constructor.
+
+push_back() copies it into vector — invokes copy constructor.
+
+Temporary destroyed — calls destructor.
+
+When vector needs to grow:
+
+Allocates new storage.
+
+Copies existing elements — calls copy constructor per element.
+
+Destroys old storage — calls destructors.
+
+When vertex goes out of scope — destroys all remaining elements.
+
+
