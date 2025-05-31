@@ -17,6 +17,7 @@ int main()
     // vertex.push_back({10,11,12});
     // vertex.push_back({13,14,15});
 
+    cout << &vertex << endl;
     // std::vector<Vertex> vertex1(vertex);
 
     // function(vertex);
