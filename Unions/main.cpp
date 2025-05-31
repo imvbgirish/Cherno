@@ -2,8 +2,22 @@
 
 using namespace std;
 
+struct Student{
+    int height;
+    union Size{
+        int length;
+    }size;
+};
+
 int main()
 {
+    //case 0
+    struct Student student;
+    cout << "Student size: " << sizeof(student) << endl;
+    student.size.length = 10;
+
+    cout << student.size.length << endl;
+
     //case 1
     struct Size{
 
@@ -40,6 +54,20 @@ int main()
 
     student1.GPA = 4.5f;
     cout << student1.GPA << "\n";
+
+    //case 4
+    union name{
+        struct size{
+            int height;
+            float length;
+            double width;
+        }size;
+        int width;
+    };
+
+    union name a;
+    cout << sizeof(name) << endl;
+    cout << sizeof(a.size) << endl;
 
     cout << "Hello World!" << endl;
     return 0;
