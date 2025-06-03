@@ -14,7 +14,7 @@ int main()
     vertex.push_back({1,2,3});
     vertex.push_back({4,5,6});
     vertex.push_back({7,8,9});
-    // vertex.push_back({10,11,12});
+    vertex.push_back({10,11,12});
     // vertex.push_back({13,14,15});
 
     cout << &vertex << endl;
